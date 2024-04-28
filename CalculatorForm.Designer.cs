@@ -101,12 +101,13 @@
             // 
             // calculateButton
             // 
+            calculateButton.BackColor = Color.Lime;
             calculateButton.Location = new Point(208, 251);
             calculateButton.Name = "calculateButton";
             calculateButton.Size = new Size(94, 34);
             calculateButton.TabIndex = 7;
             calculateButton.Text = "Calculate";
-            calculateButton.UseVisualStyleBackColor = true;
+            calculateButton.UseVisualStyleBackColor = false;
             calculateButton.Click += calculateButton_Click;
             // 
             // CalculatorForm
