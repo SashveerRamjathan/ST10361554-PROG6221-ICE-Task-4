@@ -10,32 +10,28 @@ namespace ST10361554_PROG6221_ICE_Task_4
     {
         public double Num1 { get; set; }
         public double Num2 { get; set; }
-        public string? OperationPerformed { get; set; }
         public double Result { get; set; }
 
-        public delegate void CalculationPerformedEventHandler(Calculator calc);
+        public delegate void CalculationPerformedEventHandler(string operationPerformed);
 
         public event CalculationPerformedEventHandler? CalculationPerformed;
 
         public void Add(double num1, double num2)
         {
             this.Result = num1 + num2;
-            this.OperationPerformed = "Addition";
-            OnCalculationPerformed(this);
+            OnCalculationPerformed("Addition");
         }
 
         public void Subtract(double num1, double num2)
         {
             this.Result = num1 - num2;
-            this.OperationPerformed = "Subtraction";
-            OnCalculationPerformed(this);
+            OnCalculationPerformed("Subtraction");
         }
 
         public void Multiply(double num1, double num2)
         {
             this.Result = num1 * num2;
-            this.OperationPerformed = "Multiplication";
-            OnCalculationPerformed(this);
+            OnCalculationPerformed("Multiplication");
         }
 
         public void Divide(double num1, double num2)
@@ -43,15 +39,17 @@ namespace ST10361554_PROG6221_ICE_Task_4
             if (num2 != 0)
             {
                 this.Result = num1 / num2;
-                this.OperationPerformed = "Division";
-                OnCalculationPerformed(this);
+                OnCalculationPerformed("Division");
             }
             else throw new Exception(message: "Can't Divide by 0");
         }
 
-        public virtual void OnCalculationPerformed(Calculator calc)
+        public virtual void OnCalculationPerformed(string operationPerformed)
         {
-            CalculationPerformed(calc);
+            if (CalculationPerformed != null)
+            {
+                CalculationPerformed(operationPerformed);
+            }
         }
     }
 }

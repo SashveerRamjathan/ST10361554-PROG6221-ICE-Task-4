@@ -25,36 +25,32 @@ namespace ST10361554_PROG6221_ICE_Task_4
 
                 if (operation.Equals("Addition"))
                 {
-                    calc.OperationPerformed = "Addition";
+                    calc.CalculationPerformed += (operation) => MessageBox.Show($"Operation performed: {operation} \n Result: {calc.Result}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     calc.Add(num1, num2);
-                    calc.CalculationPerformed += (calc) => MessageBox.Show($"Operation performed: {calc.OperationPerformed} \n Result: {calc.Result}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (operation.Equals("Subtraction"))
                 {
-                    calc.OperationPerformed = "Addition";
+                    calc.CalculationPerformed += (operation) => MessageBox.Show($"Operation performed: {operation} \n Result: {calc.Result}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     calc.Subtract(num1, num2);
-                    calc.CalculationPerformed += (calc) => MessageBox.Show($"Operation performed: {calc.OperationPerformed} \n Result: {calc.Result}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (operation.Equals("Multiplication"))
                 {
-                    calc.OperationPerformed = "Addition";
+                    calc.CalculationPerformed += (operation) => MessageBox.Show($"Operation performed: {operation} \n Result: {calc.Result}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     calc.Multiply(num1, num2);
-                    calc.CalculationPerformed += (calc) => MessageBox.Show($"Operation performed: {calc.OperationPerformed} \n Result: {calc.Result}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (operation.Equals("Division"))
                 {
-                    calc.OperationPerformed = "Addition";
+                    calc.CalculationPerformed += (operation) => MessageBox.Show($"Operation performed: {operation} \n Result: {calc.Result}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     calc.Divide(num1, num2);
-                    calc.CalculationPerformed += (calc) => MessageBox.Show($"Operation performed: {calc.OperationPerformed} \n Result: {calc.Result}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                firstNumberTextbox.Clear();
-                secondNumberTextbox.Clear();
-                operationComboBox.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An Error has occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
                 firstNumberTextbox.Clear();
                 secondNumberTextbox.Clear();
                 operationComboBox.SelectedIndex = -1;
